@@ -9,17 +9,17 @@ from closedloopsystem import ClosedLoopSystem
 from simulation import Simulation
 
 # Parametri del sistema (modifica questi valori per ottenere diverse risposte)
-mass = 0.0001  # Massa (in kg)
-damping = 0.1  # Smorzamento (in Ns/m)
+mass = 1000    # Massa (in kg)
+damping = 30  # Smorzamento (in Ns/m)
 time_interval = np.linspace(0, 10, 1000)  # Intervallo di tempo per la simulazione
 
 # Creazione degli oggetti per la macchina, il controllore e il sistema chiuso
 car = Car(mass, damping)
-controller = Controller(mass, damping)
+controller = Controller(mass, damping, -1) #Ultimo parametro Kp (guadagno) != 0
 closed_loop_system = ClosedLoopSystem(car, controller)
 
 # Creazione della simulazione
-simulation = Simulation(closed_loop_system, time_interval)
+simulation = Simulation(closed_loop_system, time_interval,mass,damping,controller.kp)
 
 # Esecuzione della simulazione
 time, response = simulation.run()
