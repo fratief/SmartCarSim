@@ -1,54 +1,33 @@
-# SmartCarSim
+# Studio del Sistema Cruise Control
 
-Studio del Sistema Cruise Control
+Il sistema **Cruise Control** (controllo automatico della velocità) è un esempio pratico di sistema retroazionato, progettato per mantenere la velocità costante di un veicolo senza l'intervento diretto del conducente. Questo progetto esplora la modellazione del sistema di Cruise Control utilizzando un modello dinamico del **primo ordine**, che tiene in considerazione la **resistenza viscosa** e la **forza motrice** fornita dal motore, regolata da un controller (ad esempio un controller PID).
 
-Il sistema Cruise Control (controllo automatico della velocità) è un esempio pratico di sistema retroazionato, progettato per mantenere la velocità costante di un veicolo senza l'intervento diretto del conducente. Questo progetto esplora la modellazione del sistema di Cruise Control utilizzando un modello dinamico del primo ordine, che tiene in considerazione la resistenza viscosa e la forza motrice fornita dal motore, regolata da un controller (ad esempio un controller PID).
-
-Modello Dinamico
+## Modello Dinamico
 
 Il comportamento del veicolo è descritto dall'equazione dinamica:
 
+\[
 M \frac{dv(t)}{dt} = F_m(t) - b v(t)
+\]
 
 Dove:
+- M è la massa del veicolo,
+- v(t) è la velocità del veicolo,
+- F_m(t) è la forza motrice (controllata dal sistema Cruise Control),
+- b è il coefficiente della resistenza viscosa, che è proporzionale alla velocità del veicolo.
 
- è la massa del veicolo,
-
- è la velocità del veicolo,
-
- è la forza motrice (controllata dal sistema Cruise Control),
-
- è il coefficiente della resistenza viscosa, che è proporzionale alla velocità del veicolo.
-
-
-Funzione di Trasferimento
+## Funzione di Trasferimento
 
 La funzione di trasferimento del sistema, che descrive il comportamento dinamico in frequenza, è data da:
 
+\[
 G(s) = \frac{V(s)}{F_m(s)} = \frac{1}{Ms + b}
+\]
 
-Questa è una funzione di trasferimento di primo ordine, il che significa che la risposta del sistema alla forza motrice è caratterizzata da una costante di tempo .
+Questa è una funzione di trasferimento di **primo ordine**, il che significa che la risposta del sistema alla forza motrice è caratterizzata da una costante di tempo \tau = \frac{M}{b}.
 
-Ruolo del Controller
+## Ruolo del Controller
 
-Il controller (ad esempio, un controller PID) agisce sulla forza motrice  in risposta alla differenza tra la velocità desiderata  e la velocità attuale , mantenendo la velocità del veicolo stabile. Il feedback del sistema permette di adattarsi alle variazioni di pendenza, resistenza e altri fattori esterni.
+Il **controller** (ad esempio, un controller PID) agisce sulla forza motrice F_m(t) in risposta alla differenza tra la velocità desiderata v_d(t) e la velocità attuale v(t), mantenendo la velocità del veicolo stabile. Il feedback del sistema permette di adattarsi alle variazioni di pendenza, resistenza e altri fattori esterni.
 
-Obiettivo del Progetto
-
-Il progetto mira a:
-
-1. Studiare il comportamento dinamico del sistema Cruise Control.
-
-
-2. Analizzare la stabilità e la risposta in frequenza del sistema di primo ordine.
-
-
-3. Implementare e testare un controller che regola la forza motrice per mantenere la velocità desiderata del veicolo.
-
-
-
-Conclusioni
-
-L'analisi del sistema di Cruise Control come un sistema retroazionato di primo ordine consente di comprendere meglio le dinamiche del veicolo e l'importanza di un controllo accurato per mantenere la velocità desiderata. Questo studio fornisce una base per progettare sistemi di controllo avanzati che possano affrontare scenari reali e complessi.
-
-
+## Obiettivo
