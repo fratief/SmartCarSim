@@ -30,4 +30,13 @@ Questa è una funzione di trasferimento di **primo ordine**, il che significa ch
 
 Il **controller** (ad esempio, un controller PID) agisce sulla forza motrice F_m(t) in risposta alla differenza tra la velocità desiderata v_d(t) e la velocità attuale v(t), mantenendo la velocità del veicolo stabile. Il feedback del sistema permette di adattarsi alle variazioni di pendenza, resistenza e altri fattori esterni.
 
-## Obiettivo
+## Obiettivo del Progetto
+
+Il progetto mira a:
+1. Studiare il comportamento dinamico del sistema Cruise Control.
+2. Analizzare la stabilità e la risposta in frequenza del sistema di primo ordine.
+3. Implementare e testare un controller che regola la forza motrice per mantenere la velocità desiderata del veicolo.
+
+## Conclusioni
+
+L'analisi del sistema di Cruise Control come un sistema retroazionato di **primo ordine** consente di comprendere meglio le dinamiche del veicolo e l'importanza di un controllo accurato per mantenere la velocità desiderata. Questo studio fornisce una base per progettare sistemi di controllo avanzati che possano affrontare scenari reali e complessi.
